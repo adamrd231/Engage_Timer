@@ -10,10 +10,12 @@ import SwiftUI
 @main
 struct EngageTimer2App: App {
     let persistenceController = PersistenceController.shared
+    
+    @StateObject var engageTimer = EngageTimer()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(engageTimer: engageTimer)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

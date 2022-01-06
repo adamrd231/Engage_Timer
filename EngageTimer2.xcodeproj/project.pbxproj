@@ -8,13 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		663C241027845562003867B5 /* EngageTimer2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C240F27845562003867B5 /* EngageTimer2App.swift */; };
-		663C241227845562003867B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C241127845562003867B5 /* ContentView.swift */; };
+		663C241227845562003867B5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C241127845562003867B5 /* HomeView.swift */; };
 		663C241427845563003867B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 663C241327845563003867B5 /* Assets.xcassets */; };
 		663C241727845563003867B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 663C241627845563003867B5 /* Preview Assets.xcassets */; };
 		663C241927845563003867B5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C241827845563003867B5 /* Persistence.swift */; };
 		663C241C27845563003867B5 /* EngageTimer2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 663C241A27845563003867B5 /* EngageTimer2.xcdatamodeld */; };
 		663C242727845563003867B5 /* EngageTimer2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C242627845563003867B5 /* EngageTimer2Tests.swift */; };
 		663C243227845563003867B5 /* EngageTimer2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C243127845563003867B5 /* EngageTimer2UITests.swift */; };
+		663C2441278537E8003867B5 /* EngageTimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C2440278537E8003867B5 /* EngageTimerModel.swift */; };
+		663C244427853FBD003867B5 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C244327853FBD003867B5 /* StartButton.swift */; };
+		663C24462785484C003867B5 /* ResetButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C24452785484C003867B5 /* ResetButton.swift */; };
+		663C244D278583AA003867B5 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 663C24472785815E003867B5 /* DS-DIGI.TTF */; };
+		663C2450278584FE003867B5 /* AccessoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C244F278584FE003867B5 /* AccessoryInfoView.swift */; };
+		663C2451278584FE003867B5 /* AccessoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C244F278584FE003867B5 /* AccessoryInfoView.swift */; };
+		663C2452278584FE003867B5 /* AccessoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C244F278584FE003867B5 /* AccessoryInfoView.swift */; };
+		663C245427858A0E003867B5 /* ClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245327858A0E003867B5 /* ClockFormatView.swift */; };
+		663C245527858A0E003867B5 /* ClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245327858A0E003867B5 /* ClockFormatView.swift */; };
+		663C245627858A0E003867B5 /* ClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245327858A0E003867B5 /* ClockFormatView.swift */; };
+		663C245827859684003867B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245727859684003867B5 /* SettingsView.swift */; };
+		663C245927859684003867B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245727859684003867B5 /* SettingsView.swift */; };
+		663C245A27859684003867B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245727859684003867B5 /* SettingsView.swift */; };
+		663C245C2785978E003867B5 /* AboutEngageTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245B2785978E003867B5 /* AboutEngageTimerView.swift */; };
+		663C245D2785978E003867B5 /* AboutEngageTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245B2785978E003867B5 /* AboutEngageTimerView.swift */; };
+		663C245E2785978E003867B5 /* AboutEngageTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245B2785978E003867B5 /* AboutEngageTimerView.swift */; };
+		663C2460278652BF003867B5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245F278652BF003867B5 /* RoundView.swift */; };
+		663C2461278652BF003867B5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245F278652BF003867B5 /* RoundView.swift */; };
+		663C2462278652BF003867B5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245F278652BF003867B5 /* RoundView.swift */; };
+		663C2468278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */; };
+		663C2469278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */; };
+		663C246A278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +59,7 @@
 /* Begin PBXFileReference section */
 		663C240C27845562003867B5 /* EngageTimer2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EngageTimer2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		663C240F27845562003867B5 /* EngageTimer2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngageTimer2App.swift; sourceTree = "<group>"; };
-		663C241127845562003867B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		663C241127845562003867B5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		663C241327845563003867B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		663C241627845563003867B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		663C241827845563003867B5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -49,6 +71,16 @@
 		663C242D27845563003867B5 /* EngageTimer2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EngageTimer2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		663C243127845563003867B5 /* EngageTimer2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngageTimer2UITests.swift; sourceTree = "<group>"; };
 		663C243327845563003867B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		663C2440278537E8003867B5 /* EngageTimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngageTimerModel.swift; sourceTree = "<group>"; };
+		663C244327853FBD003867B5 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		663C24452785484C003867B5 /* ResetButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetButton.swift; sourceTree = "<group>"; };
+		663C24472785815E003867B5 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
+		663C244F278584FE003867B5 /* AccessoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryInfoView.swift; sourceTree = "<group>"; };
+		663C245327858A0E003867B5 /* ClockFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockFormatView.swift; sourceTree = "<group>"; };
+		663C245727859684003867B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		663C245B2785978E003867B5 /* AboutEngageTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEngageTimerView.swift; sourceTree = "<group>"; };
+		663C245F278652BF003867B5 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
+		663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryClockFormatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +131,11 @@
 		663C240E27845562003867B5 /* EngageTimer2 */ = {
 			isa = PBXGroup;
 			children = (
+				663C244C2785837E003867B5 /* Fonts */,
+				663C244227853AD7003867B5 /* Views */,
+				663C243F278537DC003867B5 /* model */,
 				663C240F27845562003867B5 /* EngageTimer2App.swift */,
-				663C241127845562003867B5 /* ContentView.swift */,
+				663C241127845562003867B5 /* HomeView.swift */,
 				663C241327845563003867B5 /* Assets.xcassets */,
 				663C241827845563003867B5 /* Persistence.swift */,
 				663C241D27845563003867B5 /* Info.plist */,
@@ -134,6 +169,37 @@
 				663C243327845563003867B5 /* Info.plist */,
 			);
 			path = EngageTimer2UITests;
+			sourceTree = "<group>";
+		};
+		663C243F278537DC003867B5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				663C2440278537E8003867B5 /* EngageTimerModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		663C244227853AD7003867B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				663C244327853FBD003867B5 /* StartButton.swift */,
+				663C24452785484C003867B5 /* ResetButton.swift */,
+				663C244F278584FE003867B5 /* AccessoryInfoView.swift */,
+				663C245327858A0E003867B5 /* ClockFormatView.swift */,
+				663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */,
+				663C245727859684003867B5 /* SettingsView.swift */,
+				663C245B2785978E003867B5 /* AboutEngageTimerView.swift */,
+				663C245F278652BF003867B5 /* RoundView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		663C244C2785837E003867B5 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				663C24472785815E003867B5 /* DS-DIGI.TTF */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C244D278583AA003867B5 /* DS-DIGI.TTF in Resources */,
 				663C241727845563003867B5 /* Preview Assets.xcassets in Resources */,
 				663C241427845563003867B5 /* Assets.xcassets in Resources */,
 			);
@@ -265,9 +332,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C244427853FBD003867B5 /* StartButton.swift in Sources */,
+				663C2460278652BF003867B5 /* RoundView.swift in Sources */,
 				663C241927845563003867B5 /* Persistence.swift in Sources */,
-				663C241227845562003867B5 /* ContentView.swift in Sources */,
+				663C241227845562003867B5 /* HomeView.swift in Sources */,
+				663C245C2785978E003867B5 /* AboutEngageTimerView.swift in Sources */,
+				663C2468278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */,
 				663C241027845562003867B5 /* EngageTimer2App.swift in Sources */,
+				663C245427858A0E003867B5 /* ClockFormatView.swift in Sources */,
+				663C245827859684003867B5 /* SettingsView.swift in Sources */,
+				663C24462785484C003867B5 /* ResetButton.swift in Sources */,
+				663C2450278584FE003867B5 /* AccessoryInfoView.swift in Sources */,
+				663C2441278537E8003867B5 /* EngageTimerModel.swift in Sources */,
 				663C241C27845563003867B5 /* EngageTimer2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +352,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C245D2785978E003867B5 /* AboutEngageTimerView.swift in Sources */,
+				663C2469278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */,
+				663C2461278652BF003867B5 /* RoundView.swift in Sources */,
 				663C242727845563003867B5 /* EngageTimer2Tests.swift in Sources */,
+				663C245927859684003867B5 /* SettingsView.swift in Sources */,
+				663C245527858A0E003867B5 /* ClockFormatView.swift in Sources */,
+				663C2451278584FE003867B5 /* AccessoryInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +366,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C245E2785978E003867B5 /* AboutEngageTimerView.swift in Sources */,
+				663C246A278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */,
+				663C2462278652BF003867B5 /* RoundView.swift in Sources */,
 				663C243227845563003867B5 /* EngageTimer2UITests.swift in Sources */,
+				663C245A27859684003867B5 /* SettingsView.swift in Sources */,
+				663C245627858A0E003867B5 /* ClockFormatView.swift in Sources */,
+				663C2452278584FE003867B5 /* AccessoryInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
