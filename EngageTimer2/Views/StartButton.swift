@@ -48,7 +48,10 @@ struct StartButton: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
                     HStack {
-                        Image(systemName: "pause.fill").foregroundColor(.white)
+                        Image(systemName: "pause.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundColor(.white)
                         Text("Pause").foregroundColor(.white)
                     }
                 }
@@ -57,7 +60,10 @@ struct StartButton: View {
                 ZStack {
                     RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
                     HStack {
-                        Image(systemName: "play.fill").foregroundColor(.white)
+                        Image(systemName: "play.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundColor(.white)
                         Text("Start").foregroundColor(.white)
                     }
                 }

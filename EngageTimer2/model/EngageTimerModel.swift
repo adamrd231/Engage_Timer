@@ -9,32 +9,39 @@ import Foundation
 import SwiftUI
 
 class EngageTimer: ObservableObject {
-    
+    // Prepare time variables
     @Published var prepareCounter = 5
     @Published var prepCounterState = UsingPrepCountdownTimer.UsingTimer
     
+    // Warning time variables
     @Published var warningCounter = 3
     @Published var warningCounterState = UsingPrepCountdownTimer.UsingTimer
     
+    // Rounds Variables
     @Published var currentRound = 1
     @Published var numberOfRounds = 5
     
+    // Timer Values
     @Published var time = 5
     @Published var timerState = EngageTimerState.NotRunning
     @Published var totalTime = 0
     
+    // Rest Values
     @Published var rest = 5
-    @Published var usingRandomNoise = UsingRandomNoise.yes
 
+    // Random Array and Random Number Placeholder used to create random sequence.
+    @Published var randomArray:[Int] = []
     @Published var minimumRandom = 1
     @Published var maximumRandom = 5
     
+    // Backup values
     @Published var backupTime = 0
     @Published var backupWarningCounter = 0
     @Published var backupPrepareCounter = 0
     @Published var backupRest = 5
     
-    
+    // Random Noise state and sound type
+    @Published var usingRandomNoise = UsingRandomNoise.yes
     @Published var sound = "clap"
     
     

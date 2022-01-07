@@ -10,7 +10,8 @@ import SwiftUI
 struct ClockFormatView: View {
     
     var time: Int
-    var fontSize:CGFloat = 120
+    var fontSize:CGFloat = 100
+    
     
     var body: some View {
  
@@ -19,19 +20,18 @@ struct ClockFormatView: View {
             VStack {
                 Text("Time").font(.title3).fontWeight(.black).foregroundColor(Color("blue"))
 
-                HStack {
+                HStack(alignment: .bottom) {
                     Text("\(time / 60)").font(.custom("DS-Digital", size: fontSize))
                     Text(":").font(.custom("DS-Digital", size: fontSize))
                     Text("0\(time % 60)").font(.custom("DS-Digital", size: fontSize))
                 }
-
             }
                 
 
         } else {
             VStack {
                 Text("Time").font(.title3).fontWeight(.black).foregroundColor(Color("blue"))
-                HStack {
+                HStack(alignment: .bottom) {
                     Text("\(time / 60)").font(.custom("DS-Digital", size: fontSize))
                     Text(":").font(.custom("DS-Digital", size: fontSize))
                     Text("\(time % 60)").font(.custom("DS-Digital", size: fontSize))
@@ -43,6 +43,6 @@ struct ClockFormatView: View {
 
 struct ClockFormatView_Previews: PreviewProvider {
     static var previews: some View {
-        ClockFormatView(time: 67)
+        ClockFormatView(time: 60)
     }
 }

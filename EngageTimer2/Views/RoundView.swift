@@ -23,7 +23,7 @@ struct RoundView: View {
             }
             
             
-        }.padding()
+        }
     }
 }
 

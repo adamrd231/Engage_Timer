@@ -181,9 +181,9 @@ struct SettingsView: View {
                     }
                     
                         HStack {
-                            AccessoryClockFormatView(time: engageTimer.prepareCounter)
+                            AccessoryClockFormatView(time: engageTimer.warningCounter)
                             Spacer()
-                            Stepper("\(engageTimer.prepareCounter)", value: $engageTimer.prepareCounter, in: 0...120).labelsHidden()
+                            Stepper("\(engageTimer.warningCounter)", value: $engageTimer.warningCounter, in: 0...120).labelsHidden()
                         }
                         
                         .disabled(engageTimer.prepCounterState == .NotUsingTimer)
