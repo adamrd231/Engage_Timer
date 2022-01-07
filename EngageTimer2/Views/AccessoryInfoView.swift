@@ -16,36 +16,45 @@ struct AccessoryInfoView: View {
         HStack(spacing: 35) {
             VStack(spacing: 15) {
                 VStack {
-                    Text("Rest").font(.callout).fontWeight(.black)
+                    Text("Rest").font(.callout).fontWeight(.heavy)
                     AccessoryClockFormatView(time: engageTimer.rest)
-//                    Text("\(engageTimer.rest)")
-//                        .font(.headline)
+
                 }
+                
                 VStack {
-                    Text("Prepare").font(.callout).fontWeight(.black)
+                    Text("Prepare").font(.callout).fontWeight(.heavy)
                     AccessoryClockFormatView(time: engageTimer.prepareCounter)
                 }
+                .opacity(engageTimer.prepCounterState == .NotUsingTimer ? 0.5 : 1.0)
 
                 VStack {
-                    Text("Warning").font(.callout).fontWeight(.black)
+                    Text("Warning").font(.callout).fontWeight(.heavy)
                     AccessoryClockFormatView(time: engageTimer.warningCounter)
-                }
+                }.opacity(engageTimer.warningCounterState == .NotUsingTimer ? 0.5 : 1.0)
             }
             VStack(spacing: 15) {
                 VStack {
-                    Text("Total Time").font(.callout).fontWeight(.black)
+                    Text("Total Time").font(.callout).fontWeight(.heavy)
                     AccessoryClockFormatView(time: engageTimer.totalTime)
                 }
                 VStack {
-                    Text("Sound").font(.callout).fontWeight(.black)
+                    Text("Sound").font(.callout).fontWeight(.heavy)
                     Text(engageTimer.sound).font(.headline).fontWeight(.medium)
                 }
+                .opacity(engageTimer.usingRandomNoise == .no ? 0.5 : 1.0)
 
                 VStack {
-                    Text("Interval").font(.callout).fontWeight(.black)
-                    Text("3-7s").font(.headline).fontWeight(.medium)
+                    Text("Interval").font(.callout).fontWeight(.heavy)
+                    HStack {
+                        AccessoryClockFormatView(time: 3)
+                        Text("-")
+                        AccessoryClockFormatView(time: 10)
+                    }
                 }
-            }
+                .opacity(engageTimer.usingRandomNoise == .no ? 0.5 : 1.0)
+            }.onAppear(perform: {
+                print("Using Random Noise: \(engageTimer.usingRandomNoise)")
+            })
         }
     }
 }

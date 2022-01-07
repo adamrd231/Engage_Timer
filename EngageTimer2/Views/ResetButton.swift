@@ -10,10 +10,22 @@ import SwiftUI
 struct ResetButton: View {
     
     @StateObject var engageTimer: EngageTimer
+    @Binding var timer: Timer.TimerPublisher
+    
+    func resetValues() {
+        engageTimer.time = engageTimer.backupTime
+        engageTimer.rest = engageTimer.backupRest
+        engageTimer.prepareCounter = engageTimer.backupPrepareCounter
+        engageTimer.warningCounter = engageTimer.backupWarningCounter
+        engageTimer.currentRound = 1
+    }
     
     var body: some View {
         Button(action: {
-  
+            playSound(sound: "stop-button", type: "wav")
+            timer.connect().cancel()
+            engageTimer.timerState = .NotRunning
+            resetValues()
             print(engageTimer.timerState)
         }) {
             Text("Reset").foregroundColor((Color("blue")))
@@ -23,8 +35,3 @@ struct ResetButton: View {
     }
 }
 
-struct ResetButton_Previews: PreviewProvider {
-    static var previews: some View {
-        ResetButton(engageTimer: EngageTimer())
-    }
-}

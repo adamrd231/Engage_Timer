@@ -17,28 +17,28 @@ struct HomeView: View {
     
     @State var showSheet = false
     
-    @State var sheetSelection = 1
+    @State var sheetSelection: Int?
     
 
     var body: some View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
+                    
+                    // Timer Stack View
                     VStack {
                         RoundView(currentRound: engageTimer.currentRound, numberOfRounds: engageTimer.numberOfRounds)
                         
-                            
                         ClockFormatView(time: engageTimer.time)
                         
                         VStack(spacing: 25) {
                             StartButton(engageTimer: engageTimer, timer: $timer)
-                            ResetButton(engageTimer: engageTimer)
+                            ResetButton(engageTimer: engageTimer, timer: $timer)
                         }.padding()
                         
                         
                     }.frame(width: geo.size.width, height: geo.size.height * 0.61, alignment: .center)
                    
-                    
                     AccessoryInfoView(engageTimer: engageTimer).frame(width: geo.size.width, height: geo.size.height * 0.3, alignment: .top)
                         
                     Spacer()
@@ -64,7 +64,7 @@ struct HomeView: View {
                             showSheet.toggle()
                 }.foregroundColor((Color("blue"))))
                 .onAppear(perform: {
-                    engageTimer.totalTime = engageTimer.time * engageTimer.numberOfRounds
+                    engageTimer.totalTime = (engageTimer.time * engageTimer.numberOfRounds) + (engageTimer.rest * engageTimer.numberOfRounds)
                 })
                 .onReceive(self.timer) { _ in
                     if engageTimer.timerState == .NotRunning {
@@ -75,11 +75,20 @@ struct HomeView: View {
                     
                 }
                 .sheet(isPresented: $showSheet) {
-                    if self.sheetSelection == 1 {
-                        SettingsView()
-                    } else {
-                        AboutEngageTimerView()
+                    
+                    switch self.sheetSelection {
+                    case 1: SettingsView(engageTimer: engageTimer)
+                    default: OnboardingScreenView()
+            
                     }
+                    
+                    
+//
+//                    if self.sheetSelection == 1 {
+//                        SettingsView(engageTimer: engageTimer)
+//                    } else {
+//                        AboutEngageTimerView()
+//                    }
 
                     }
             }

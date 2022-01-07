@@ -12,47 +12,65 @@ struct StartButton: View {
     @StateObject var engageTimer: EngageTimer
     @Binding var timer: Timer.TimerPublisher
     
-    
+
     var body: some View {
         Button(action: {
             print("\(engageTimer.time), \(engageTimer.timerState)")
-            if engageTimer.timerState == .IsRunning {
-                print("1")
-                timer.connect().cancel()
-                engageTimer.timerState = .NotRunning
-            } else {
-                print("2")
+            
+            switch engageTimer.timerState {
+            case .NotRunning:
+                playSound(sound: "start-button", type: "wav")
+                // Create new timer
+                timer = Timer.publish(every: 1, on: .main, in: .common)
+                engageTimer.setBackupValues()
+                self.timer.connect()
+                engageTimer.timerState = .IsRunning
+                
+            case .IsPaused:
+                playSound(sound: "pause", type: "wav")
                 // Create new timer
                 timer = Timer.publish(every: 1, on: .main, in: .common)
                 self.timer.connect()
                 engageTimer.timerState = .IsRunning
                 
+            case .IsRunning:
+                playSound(sound: "pause", type: "wav")
+                timer.connect().cancel()
+                engageTimer.timerState = .IsPaused
                 
             }
             
-            
         }) {
-            if engageTimer.timerState == .IsRunning {
+            
+            
+            switch engageTimer.timerState {
+            case .IsRunning:
                 ZStack {
-                    RoundedRectangle(cornerRadius: 25.0).frame(width: 100, height: 75).foregroundColor((Color("blue")))
+                    RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
                     HStack {
                         Image(systemName: "pause.fill").foregroundColor(.white)
                         Text("Pause").foregroundColor(.white)
                     }
-                    
                 }
-               
-            } else {
+                
+            case .NotRunning:
                 ZStack {
-                    RoundedRectangle(cornerRadius: 25.0).frame(width: 100, height: 75).foregroundColor((Color("blue")))
+                    RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
                     HStack {
                         Image(systemName: "play.fill").foregroundColor(.white)
                         Text("Start").foregroundColor(.white)
                     }
-                   
+                }
+                
+            case .IsPaused:
+                ZStack {
+                    RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
+                    HStack {
+                        Image(systemName: "play.fill").foregroundColor(.white)
+                        Text("Resume").foregroundColor(.white)
+                    }
                 }
             }
-            
         }
     }
 }

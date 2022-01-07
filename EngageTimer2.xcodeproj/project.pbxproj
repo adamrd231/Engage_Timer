@@ -28,15 +28,51 @@
 		663C245827859684003867B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245727859684003867B5 /* SettingsView.swift */; };
 		663C245927859684003867B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245727859684003867B5 /* SettingsView.swift */; };
 		663C245A27859684003867B5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245727859684003867B5 /* SettingsView.swift */; };
-		663C245C2785978E003867B5 /* AboutEngageTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245B2785978E003867B5 /* AboutEngageTimerView.swift */; };
-		663C245D2785978E003867B5 /* AboutEngageTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245B2785978E003867B5 /* AboutEngageTimerView.swift */; };
-		663C245E2785978E003867B5 /* AboutEngageTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245B2785978E003867B5 /* AboutEngageTimerView.swift */; };
 		663C2460278652BF003867B5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245F278652BF003867B5 /* RoundView.swift */; };
 		663C2461278652BF003867B5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245F278652BF003867B5 /* RoundView.swift */; };
 		663C2462278652BF003867B5 /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C245F278652BF003867B5 /* RoundView.swift */; };
 		663C2468278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */; };
 		663C2469278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */; };
 		663C246A278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */; };
+		663C246C27878226003867B5 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C246B27878226003867B5 /* PlaySound.swift */; };
+		663C246D27878226003867B5 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C246B27878226003867B5 /* PlaySound.swift */; };
+		663C246E27878226003867B5 /* PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C246B27878226003867B5 /* PlaySound.swift */; };
+		663C2478278782AC003867B5 /* boxing-bell-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2470278782AC003867B5 /* boxing-bell-1.wav */; };
+		663C2479278782AC003867B5 /* boxing-bell-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2470278782AC003867B5 /* boxing-bell-1.wav */; };
+		663C247A278782AC003867B5 /* boxing-bell-1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2470278782AC003867B5 /* boxing-bell-1.wav */; };
+		663C247B278782AC003867B5 /* pause.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2471278782AC003867B5 /* pause.wav */; };
+		663C247C278782AC003867B5 /* pause.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2471278782AC003867B5 /* pause.wav */; };
+		663C247D278782AC003867B5 /* pause.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2471278782AC003867B5 /* pause.wav */; };
+		663C247E278782AC003867B5 /* boxing-bell-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2472278782AC003867B5 /* boxing-bell-3.wav */; };
+		663C247F278782AC003867B5 /* boxing-bell-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2472278782AC003867B5 /* boxing-bell-3.wav */; };
+		663C2480278782AC003867B5 /* boxing-bell-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2472278782AC003867B5 /* boxing-bell-3.wav */; };
+		663C2481278782AC003867B5 /* start-button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2473278782AC003867B5 /* start-button.wav */; };
+		663C2482278782AC003867B5 /* start-button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2473278782AC003867B5 /* start-button.wav */; };
+		663C2483278782AC003867B5 /* start-button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2473278782AC003867B5 /* start-button.wav */; };
+		663C2484278782AC003867B5 /* Clap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2474278782AC003867B5 /* Clap.mp3 */; };
+		663C2485278782AC003867B5 /* Clap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2474278782AC003867B5 /* Clap.mp3 */; };
+		663C2486278782AC003867B5 /* Clap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2474278782AC003867B5 /* Clap.mp3 */; };
+		663C2487278782AC003867B5 /* stop-button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2475278782AC003867B5 /* stop-button.wav */; };
+		663C2488278782AC003867B5 /* stop-button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2475278782AC003867B5 /* stop-button.wav */; };
+		663C2489278782AC003867B5 /* stop-button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C2475278782AC003867B5 /* stop-button.wav */; };
+		663C248A278782AC003867B5 /* Whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2476278782AC003867B5 /* Whistle.mp3 */; };
+		663C248B278782AC003867B5 /* Whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2476278782AC003867B5 /* Whistle.mp3 */; };
+		663C248C278782AC003867B5 /* Whistle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2476278782AC003867B5 /* Whistle.mp3 */; };
+		663C248D278782AC003867B5 /* Bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2477278782AC003867B5 /* Bell.mp3 */; };
+		663C248E278782AC003867B5 /* Bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2477278782AC003867B5 /* Bell.mp3 */; };
+		663C248F278782AC003867B5 /* Bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 663C2477278782AC003867B5 /* Bell.mp3 */; };
+		663C24912787860F003867B5 /* wood.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24902787860F003867B5 /* wood.wav */; };
+		663C24922787860F003867B5 /* wood.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24902787860F003867B5 /* wood.wav */; };
+		663C24932787860F003867B5 /* wood.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24902787860F003867B5 /* wood.wav */; };
+		663C24952787B0F0003867B5 /* double-hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24942787B0F0003867B5 /* double-hit.wav */; };
+		663C24962787B0F0003867B5 /* double-hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24942787B0F0003867B5 /* double-hit.wav */; };
+		663C24972787B0F0003867B5 /* double-hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24942787B0F0003867B5 /* double-hit.wav */; };
+		663C24992787B152003867B5 /* double-hit2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24982787B152003867B5 /* double-hit2.wav */; };
+		663C249A2787B152003867B5 /* double-hit2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24982787B152003867B5 /* double-hit2.wav */; };
+		663C249B2787B152003867B5 /* double-hit2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 663C24982787B152003867B5 /* double-hit2.wav */; };
+		663C249D2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */; };
+		663C249E2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */; };
+		663C249F2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,9 +114,21 @@
 		663C244F278584FE003867B5 /* AccessoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryInfoView.swift; sourceTree = "<group>"; };
 		663C245327858A0E003867B5 /* ClockFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockFormatView.swift; sourceTree = "<group>"; };
 		663C245727859684003867B5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		663C245B2785978E003867B5 /* AboutEngageTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutEngageTimerView.swift; sourceTree = "<group>"; };
 		663C245F278652BF003867B5 /* RoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundView.swift; sourceTree = "<group>"; };
 		663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryClockFormatView.swift; sourceTree = "<group>"; };
+		663C246B27878226003867B5 /* PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaySound.swift; sourceTree = "<group>"; };
+		663C2470278782AC003867B5 /* boxing-bell-1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "boxing-bell-1.wav"; sourceTree = "<group>"; };
+		663C2471278782AC003867B5 /* pause.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pause.wav; sourceTree = "<group>"; };
+		663C2472278782AC003867B5 /* boxing-bell-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "boxing-bell-3.wav"; sourceTree = "<group>"; };
+		663C2473278782AC003867B5 /* start-button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "start-button.wav"; sourceTree = "<group>"; };
+		663C2474278782AC003867B5 /* Clap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Clap.mp3; sourceTree = "<group>"; };
+		663C2475278782AC003867B5 /* stop-button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "stop-button.wav"; sourceTree = "<group>"; };
+		663C2476278782AC003867B5 /* Whistle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Whistle.mp3; sourceTree = "<group>"; };
+		663C2477278782AC003867B5 /* Bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bell.mp3; sourceTree = "<group>"; };
+		663C24902787860F003867B5 /* wood.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wood.wav; sourceTree = "<group>"; };
+		663C24942787B0F0003867B5 /* double-hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "double-hit.wav"; sourceTree = "<group>"; };
+		663C24982787B152003867B5 /* double-hit2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "double-hit2.wav"; sourceTree = "<group>"; };
+		663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +179,7 @@
 		663C240E27845562003867B5 /* EngageTimer2 */ = {
 			isa = PBXGroup;
 			children = (
+				663C246F27878296003867B5 /* SoundFiles */,
 				663C244C2785837E003867B5 /* Fonts */,
 				663C244227853AD7003867B5 /* Views */,
 				663C243F278537DC003867B5 /* model */,
@@ -175,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				663C2440278537E8003867B5 /* EngageTimerModel.swift */,
+				663C246B27878226003867B5 /* PlaySound.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -188,8 +238,8 @@
 				663C245327858A0E003867B5 /* ClockFormatView.swift */,
 				663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */,
 				663C245727859684003867B5 /* SettingsView.swift */,
-				663C245B2785978E003867B5 /* AboutEngageTimerView.swift */,
 				663C245F278652BF003867B5 /* RoundView.swift */,
+				663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,6 +250,24 @@
 				663C24472785815E003867B5 /* DS-DIGI.TTF */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		663C246F27878296003867B5 /* SoundFiles */ = {
+			isa = PBXGroup;
+			children = (
+				663C24942787B0F0003867B5 /* double-hit.wav */,
+				663C24982787B152003867B5 /* double-hit2.wav */,
+				663C24902787860F003867B5 /* wood.wav */,
+				663C2477278782AC003867B5 /* Bell.mp3 */,
+				663C2470278782AC003867B5 /* boxing-bell-1.wav */,
+				663C2472278782AC003867B5 /* boxing-bell-3.wav */,
+				663C2474278782AC003867B5 /* Clap.mp3 */,
+				663C2471278782AC003867B5 /* pause.wav */,
+				663C2473278782AC003867B5 /* start-button.wav */,
+				663C2475278782AC003867B5 /* stop-button.wav */,
+				663C2476278782AC003867B5 /* Whistle.mp3 */,
+			);
+			path = SoundFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,8 +373,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C2481278782AC003867B5 /* start-button.wav in Resources */,
+				663C248A278782AC003867B5 /* Whistle.mp3 in Resources */,
 				663C244D278583AA003867B5 /* DS-DIGI.TTF in Resources */,
+				663C2487278782AC003867B5 /* stop-button.wav in Resources */,
 				663C241727845563003867B5 /* Preview Assets.xcassets in Resources */,
+				663C24952787B0F0003867B5 /* double-hit.wav in Resources */,
+				663C247E278782AC003867B5 /* boxing-bell-3.wav in Resources */,
+				663C2478278782AC003867B5 /* boxing-bell-1.wav in Resources */,
+				663C248D278782AC003867B5 /* Bell.mp3 in Resources */,
+				663C247B278782AC003867B5 /* pause.wav in Resources */,
+				663C24912787860F003867B5 /* wood.wav in Resources */,
+				663C2484278782AC003867B5 /* Clap.mp3 in Resources */,
+				663C24992787B152003867B5 /* double-hit2.wav in Resources */,
 				663C241427845563003867B5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,6 +394,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C2479278782AC003867B5 /* boxing-bell-1.wav in Resources */,
+				663C248B278782AC003867B5 /* Whistle.mp3 in Resources */,
+				663C247C278782AC003867B5 /* pause.wav in Resources */,
+				663C2488278782AC003867B5 /* stop-button.wav in Resources */,
+				663C2485278782AC003867B5 /* Clap.mp3 in Resources */,
+				663C249A2787B152003867B5 /* double-hit2.wav in Resources */,
+				663C248E278782AC003867B5 /* Bell.mp3 in Resources */,
+				663C24922787860F003867B5 /* wood.wav in Resources */,
+				663C24962787B0F0003867B5 /* double-hit.wav in Resources */,
+				663C247F278782AC003867B5 /* boxing-bell-3.wav in Resources */,
+				663C2482278782AC003867B5 /* start-button.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +412,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C247A278782AC003867B5 /* boxing-bell-1.wav in Resources */,
+				663C248C278782AC003867B5 /* Whistle.mp3 in Resources */,
+				663C247D278782AC003867B5 /* pause.wav in Resources */,
+				663C2489278782AC003867B5 /* stop-button.wav in Resources */,
+				663C2486278782AC003867B5 /* Clap.mp3 in Resources */,
+				663C249B2787B152003867B5 /* double-hit2.wav in Resources */,
+				663C248F278782AC003867B5 /* Bell.mp3 in Resources */,
+				663C24932787860F003867B5 /* wood.wav in Resources */,
+				663C24972787B0F0003867B5 /* double-hit.wav in Resources */,
+				663C2480278782AC003867B5 /* boxing-bell-3.wav in Resources */,
+				663C2483278782AC003867B5 /* start-button.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,11 +433,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663C249D2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */,
 				663C244427853FBD003867B5 /* StartButton.swift in Sources */,
+				663C246C27878226003867B5 /* PlaySound.swift in Sources */,
 				663C2460278652BF003867B5 /* RoundView.swift in Sources */,
 				663C241927845563003867B5 /* Persistence.swift in Sources */,
 				663C241227845562003867B5 /* HomeView.swift in Sources */,
-				663C245C2785978E003867B5 /* AboutEngageTimerView.swift in Sources */,
 				663C2468278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */,
 				663C241027845562003867B5 /* EngageTimer2App.swift in Sources */,
 				663C245427858A0E003867B5 /* ClockFormatView.swift in Sources */,
@@ -352,7 +454,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				663C245D2785978E003867B5 /* AboutEngageTimerView.swift in Sources */,
+				663C249E2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */,
+				663C246D27878226003867B5 /* PlaySound.swift in Sources */,
 				663C2469278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */,
 				663C2461278652BF003867B5 /* RoundView.swift in Sources */,
 				663C242727845563003867B5 /* EngageTimer2Tests.swift in Sources */,
@@ -366,7 +469,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				663C245E2785978E003867B5 /* AboutEngageTimerView.swift in Sources */,
+				663C249F2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */,
+				663C246E27878226003867B5 /* PlaySound.swift in Sources */,
 				663C246A278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */,
 				663C2462278652BF003867B5 /* RoundView.swift in Sources */,
 				663C243227845563003867B5 /* EngageTimer2UITests.swift in Sources */,
