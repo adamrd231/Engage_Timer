@@ -196,7 +196,9 @@ struct SettingsView: View {
                 
             }
             Text("Swipe Down to Save").bold()
-        }
+        }.onDisappear(perform: {
+            engageTimer.createRandomNumberArray()
+        })
         
         
     }

@@ -46,9 +46,9 @@ struct AccessoryInfoView: View {
                 VStack {
                     Text("Interval").font(.callout).fontWeight(.heavy)
                     HStack {
-                        AccessoryClockFormatView(time: 3)
+                        AccessoryClockFormatView(time: engageTimer.minimumRandom)
                         Text("-")
-                        AccessoryClockFormatView(time: 10)
+                        AccessoryClockFormatView(time: engageTimer.maximumRandom)
                     }
                 }
                 .opacity(engageTimer.usingRandomNoise == .no ? 0.5 : 1.0)

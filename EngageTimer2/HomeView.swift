@@ -28,89 +28,93 @@ struct HomeView: View {
     @State var showSheet = false
     @State var activeSheet: ActiveSheet?
     
-    
+    @StateObject var storeManager: StoreManager
     
 
     var body: some View {
         NavigationView {
-            GeometryReader { geo in
+
                 
-                    TabView {
-                    // MARK: First Screen
+                TabView {
+                // MARK: First Screen
 
-                        VStack(spacing: 15) {
-Spacer()
-                        // Timer Stack View
-                        RoundView(currentRound: engageTimer.currentRound, numberOfRounds: engageTimer.numberOfRounds)
-                        ClockFormatView(time: engageTimer.time)
-                            AccessoryInfoView(engageTimer: engageTimer)
-                                .padding()
-                                .background(Color("lightGray"))
-                                .cornerRadius(15)
-                  
-                        StartButton(engageTimer: engageTimer, timer: $timer)
-                        ResetButton(engageTimer: engageTimer, timer: $timer)
-                        Spacer()
-                            
-                        ZStack {
-                            Rectangle().foregroundColor(Color("lightGray"))
-                            Text("Admob")
-                        }.frame(height: 75)
+                    VStack(spacing: 15) {
+                    Spacer()
+                    // Timer Stack View
+                    RoundView(currentRound: engageTimer.currentRound, numberOfRounds: engageTimer.numberOfRounds)
+                    ClockFormatView(time: engageTimer.time)
+                        AccessoryInfoView(engageTimer: engageTimer)
+                            .padding()
+                            .background(Color("lightGray"))
+                            .cornerRadius(15)
+              
+                    StartButton(engageTimer: engageTimer, timer: $timer)
+                    ResetButton(engageTimer: engageTimer, timer: $timer)
+                    Spacer()
+                        
+                    ZStack {
+                        Rectangle().foregroundColor(Color("lightGray"))
+                        Text("Admob")
+                    }.frame(height: 75)
 
-                    }.tabItem { VStack {
-                        Image(systemName: "clock")
-                            
-                        Text("Engage Timer")
-                    } }
+                }.tabItem { VStack {
+                    Image(systemName: "clock").foregroundColor(Color("blue"))
                         
-                    VStack {
-                        
-                        Text("Second Page")
-                    }.tabItem { VStack {
-                        Image(systemName: "creditcard")
-                        Text("Remove Ads")
-                    } }
-                }
-
-                // MARK: Modifications on the view
-                //
-                .navigationBarItems(
-                    leading: Button("About Timer") {
-                        self.activeSheet = .about
-        
-                        
-                        
-                    }.foregroundColor((Color("blue"))),
-                    trailing:
-                        Button("Settings") {
-                            self.activeSheet = .settings
-                            
-                        }.foregroundColor((Color("blue"))))
-                        .onAppear(perform: {
-                            engageTimer.totalTime = (engageTimer.time * engageTimer.numberOfRounds) + (engageTimer.rest * engageTimer.numberOfRounds)
-                })
-                .onReceive(self.timer) { _ in
-                    if engageTimer.timerState == .NotRunning {
-                        
-                        timer.connect().cancel()
-                    } else {
-                        engageTimer.runEngageTimer(resetValue: 3)
-                    }
+                    Text("Engage Timer").foregroundColor(Color("blue"))
+                } }
                     
-                }
-                    .sheet(item: $activeSheet) { item in
-                        switch item {
-                        case .settings:
-                            SettingsView(engageTimer: engageTimer)
-                        case .about:
-                            OnboardingScreenView()
-                        default: EmptyView()
-                        }
-                       
-                    }
+                VStack {
                     
+                    InAppStorePurchasesView(storeManager: storeManager)
+                    
+                }.tabItem { VStack {
+                    Image(systemName: "creditcard").foregroundColor(Color("blue"))
+                    Text("Remove Ads").foregroundColor(Color("blue"))
+                } }
             }
-            
+
+            // MARK: Modifications on the view
+            //
+                
+            .navigationBarItems(
+                leading: Button("About Timer") {
+                    self.activeSheet = .about
+    
+                    
+                    
+                }
+                .foregroundColor((Color("blue"))),
+                trailing:
+                    Button("Settings") {
+                        self.activeSheet = .settings
+                        
+                    }
+                    .foregroundColor((Color("blue"))))
+            .onAppear(perform: {
+                engageTimer.totalTime = (engageTimer.time * engageTimer.numberOfRounds) + (engageTimer.rest * engageTimer.numberOfRounds)
+                engageTimer.createRandomNumberArray()
+            })
+            .onReceive(self.timer) { _ in
+                // If timer is not running
+                if engageTimer.timerState == .NotRunning {
+                    timer.connect().cancel()
+                } else {
+                    // Create random number array for engage sounds
+                    
+                    engageTimer.runEngageTimer()
+                }
+                
+            }
+                .sheet(item: $activeSheet) { item in
+                    switch item {
+                    case .settings:
+                        SettingsView(engageTimer: engageTimer)
+                    case .about:
+                        OnboardingScreenView()
+                    default: EmptyView()
+                    }
+                   
+                }
         }
         
     }
@@ -135,6 +139,7 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(engageTimer: EngageTimer()).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        HomeView(engageTimer: EngageTimer(), storeManager: StoreManager())
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

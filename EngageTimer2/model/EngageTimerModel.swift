@@ -22,7 +22,7 @@ class EngageTimer: ObservableObject {
     @Published var numberOfRounds = 5
     
     // Timer Values
-    @Published var time = 5
+    @Published var time = 30
     @Published var timerState = EngageTimerState.NotRunning
     @Published var totalTime = 0
     
@@ -31,7 +31,7 @@ class EngageTimer: ObservableObject {
 
     // Random Array and Random Number Placeholder used to create random sequence.
     @Published var randomArray:[Int] = []
-    @Published var minimumRandom = 1
+    @Published var minimumRandom = 3
     @Published var maximumRandom = 5
     
     // Backup values
@@ -42,8 +42,31 @@ class EngageTimer: ObservableObject {
     
     // Random Noise state and sound type
     @Published var usingRandomNoise = UsingRandomNoise.yes
-    @Published var sound = "clap"
+    @Published var sound = "Clap"
     
+    
+    func createRandomNumberArray() {
+        
+        // Make sure the array is blank
+        randomArray = []
+        // Create a variable to run through the range with
+        var startingNumber = 1
+        
+        while startingNumber < time {
+            
+            let randomNumber = Int.random(in: minimumRandom...maximumRandom)
+            startingNumber += randomNumber
+            
+            if startingNumber < time - warningCounter {
+                randomArray.append(startingNumber)
+            }
+            
+        }
+        
+        startingNumber = 1
+        print(randomArray)
+        
+    }
     
     func setBackupValues() {
         backupTime = time
@@ -56,7 +79,8 @@ class EngageTimer: ObservableObject {
     
 
     
-    func runEngageTimer(resetValue: Int) {
+    func runEngageTimer() {
+        
         // If prepare counter is being used, start countdown with that
         if prepCounterState == .UsingTimer && prepareCounter > 0 {
             prepareCounter -= 1
@@ -67,6 +91,9 @@ class EngageTimer: ObservableObject {
                 playSound(sound: "boxing-bell-1", type: "wav")
             }
             
+            if randomArray.contains(time) {
+                playSound(sound: sound, type: "mp3")
+            }
             
             
             time -= 1
@@ -94,7 +121,7 @@ class EngageTimer: ObservableObject {
             // Finished running timer, reset
         } else {
             timerState = .NotRunning
-            time = resetValue
+            time = backupTime
             currentRound = 1
         }
     }

@@ -73,6 +73,9 @@
 		663C249D2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */; };
 		663C249E2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */; };
 		663C249F2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */; };
+		665FBA9527890E7400E70C14 /* InAppPurchasesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665FBA9427890E7400E70C14 /* InAppPurchasesView.swift */; };
+		665FBA9727890E8400E70C14 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665FBA9627890E8400E70C14 /* StoreManager.swift */; };
+		665FBA9A27890F1900E70C14 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665FBA9927890F1900E70C14 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +132,9 @@
 		663C24942787B0F0003867B5 /* double-hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "double-hit.wav"; sourceTree = "<group>"; };
 		663C24982787B152003867B5 /* double-hit2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "double-hit2.wav"; sourceTree = "<group>"; };
 		663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingScreenView.swift; sourceTree = "<group>"; };
+		665FBA9427890E7400E70C14 /* InAppPurchasesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesView.swift; sourceTree = "<group>"; };
+		665FBA9627890E8400E70C14 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
+		665FBA9927890F1900E70C14 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665FBA9A27890F1900E70C14 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +170,7 @@
 				663C242527845563003867B5 /* EngageTimer2Tests */,
 				663C243027845563003867B5 /* EngageTimer2UITests */,
 				663C240D27845562003867B5 /* Products */,
+				665FBA9827890F1900E70C14 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +187,7 @@
 		663C240E27845562003867B5 /* EngageTimer2 */ = {
 			isa = PBXGroup;
 			children = (
+				665FBA9327890E6300E70C14 /* InAppPurchases */,
 				663C246F27878296003867B5 /* SoundFiles */,
 				663C244C2785837E003867B5 /* Fonts */,
 				663C244227853AD7003867B5 /* Views */,
@@ -268,6 +277,23 @@
 				663C2476278782AC003867B5 /* Whistle.mp3 */,
 			);
 			path = SoundFiles;
+			sourceTree = "<group>";
+		};
+		665FBA9327890E6300E70C14 /* InAppPurchases */ = {
+			isa = PBXGroup;
+			children = (
+				665FBA9427890E7400E70C14 /* InAppPurchasesView.swift */,
+				665FBA9627890E8400E70C14 /* StoreManager.swift */,
+			);
+			path = InAppPurchases;
+			sourceTree = "<group>";
+		};
+		665FBA9827890F1900E70C14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				665FBA9927890F1900E70C14 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,10 +464,12 @@
 				663C246C27878226003867B5 /* PlaySound.swift in Sources */,
 				663C2460278652BF003867B5 /* RoundView.swift in Sources */,
 				663C241927845563003867B5 /* Persistence.swift in Sources */,
+				665FBA9727890E8400E70C14 /* StoreManager.swift in Sources */,
 				663C241227845562003867B5 /* HomeView.swift in Sources */,
 				663C2468278685AE003867B5 /* AccessoryClockFormatView.swift in Sources */,
 				663C241027845562003867B5 /* EngageTimer2App.swift in Sources */,
 				663C245427858A0E003867B5 /* ClockFormatView.swift in Sources */,
+				665FBA9527890E7400E70C14 /* InAppPurchasesView.swift in Sources */,
 				663C245827859684003867B5 /* SettingsView.swift in Sources */,
 				663C24462785484C003867B5 /* ResetButton.swift in Sources */,
 				663C2450278584FE003867B5 /* AccessoryInfoView.swift in Sources */,
@@ -627,7 +655,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = design.rdConcepts.EngageTimer2;
+				PRODUCT_BUNDLE_IDENTIFIER = design.rdconcepts.engager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -649,7 +677,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = design.rdConcepts.EngageTimer2;
+				PRODUCT_BUNDLE_IDENTIFIER = design.rdconcepts.engager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
