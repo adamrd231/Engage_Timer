@@ -12,6 +12,8 @@ struct OnboardingScreenView: View {
     
     @State var step = 1
     
+    @Binding var doneViewing: Bool
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -128,7 +130,9 @@ struct OnboardingScreenView: View {
                     .background(Capsule().stroke(lineWidth: 2))
                     .foregroundColor(.primary)
                 }.padding()
-                
+                .onDisappear(perform: {
+                    doneViewing = false
+                })
             } // Close Main V-Stack
     } // Close Body View
 
@@ -136,8 +140,3 @@ struct OnboardingScreenView: View {
 
 
 
-struct OnboardingScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingScreenView()
-    }
-}

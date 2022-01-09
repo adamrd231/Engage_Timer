@@ -15,6 +15,8 @@ struct SettingsView: View {
     @State var offColor = Color(UIColor.systemGray)
     @State var thumbColor = Color.white
     
+    @Environment(\.presentationMode) var presentationMode
+    
     
     var body: some View {
         VStack {
@@ -26,7 +28,7 @@ struct SettingsView: View {
                         HStack {
                             Text("Number of Rounds: \(engageTimer.numberOfRounds)")
                             Spacer()
-                            Stepper("\(engageTimer.numberOfRounds)", value: $engageTimer.numberOfRounds, in: 0...25).labelsHidden()
+                            Stepper("\(engageTimer.numberOfRounds)", value: $engageTimer.numberOfRounds, in: 0...50).labelsHidden()
                         }
                         
                     }
@@ -36,7 +38,7 @@ struct SettingsView: View {
                             Text("Time:")
                             AccessoryClockFormatView(time: engageTimer.time)
                             Spacer()
-                            Stepper("\(engageTimer.time)", value: $engageTimer.time, in: 0...120).labelsHidden()
+                            Stepper("\(engageTimer.time)", value: $engageTimer.time, in: 0...1000, step: 10).labelsHidden()
                         }
                     }
                     VStack(alignment: .leading) {
@@ -46,7 +48,7 @@ struct SettingsView: View {
                             Text("Rest:")
                             AccessoryClockFormatView(time: engageTimer.rest)
                             Spacer()
-                            Stepper("\(engageTimer.rest)", value: $engageTimer.rest, in: 0...120).labelsHidden()
+                            Stepper("\(engageTimer.rest)", value: $engageTimer.rest, in: 0...500, step: 5).labelsHidden()
                         }
                         
                     }
@@ -60,20 +62,20 @@ struct SettingsView: View {
                             Spacer()
                             
                             RoundedRectangle(cornerRadius: 25, style: .circular)
-                                .fill(engageTimer.usingRandomNoise == .yes ? onColor : offColor)
+                                .fill(engageTimer.usingRandomNoise == true ? onColor : offColor)
                                 .frame(width: 75, height: 35)
                             .overlay(
                                 Circle()
                                 .fill(thumbColor)
                                     .shadow(radius: 1, x: 0, y: 1)
                                     .padding(1.5)
-                                    .offset(x: engageTimer.usingRandomNoise == .yes ? 20 : -20)
+                                    .offset(x: engageTimer.usingRandomNoise == true ? 20 : -20)
                                     .animation(Animation.easeInOut(duration: 0.3))
                                     .onTapGesture {
-                                        if engageTimer.usingRandomNoise == .yes {
-                                            engageTimer.usingRandomNoise = .no
+                                        if engageTimer.usingRandomNoise == true {
+                                            engageTimer.usingRandomNoise = false
                                         } else {
-                                            engageTimer.usingRandomNoise = .yes
+                                            engageTimer.usingRandomNoise = true
                                         }}
                             )
                         }
@@ -94,7 +96,7 @@ struct SettingsView: View {
                                     AccessoryClockFormatView(time: engageTimer.minimumRandom)
                                 }
                                 Spacer()
-                                Stepper("\(engageTimer.minimumRandom)", value: $engageTimer.minimumRandom, in: 0...120).labelsHidden()
+                                Stepper("\(engageTimer.minimumRandom)", value: $engageTimer.minimumRandom, in: 0...450).labelsHidden()
                             }
                             HStack {
                                 HStack {
@@ -103,17 +105,22 @@ struct SettingsView: View {
                                 }
                                 
                                 Spacer()
-                                Stepper("\(engageTimer.maximumRandom)", value: $engageTimer.maximumRandom, in: 0...120).labelsHidden()
+                                Stepper("\(engageTimer.maximumRandom)", value: $engageTimer.maximumRandom, in: 0...500).labelsHidden()
                             }
                             
-                            HStack {
-                                Text("Random Noise")
-                                Spacer()
-                                Text("\(engageTimer.sound)").bold()
+                            VStack(alignment: .leading) {
+                                
+                                Text("Choose Engage Sound")
+                                Picker(selection: $engageTimer.selectedSound, label: Text("Test"), content: {
+                                    ForEach (0 ..< engageTimer.noiseArray.count, id: \.self) {
+                                        Text(self.engageTimer.noiseArray[$0])
+                                    }
+                                }).pickerStyle(WheelPickerStyle()).padding(.vertical, 0)
+                            
                             }
                            
-                        }.disabled(engageTimer.usingRandomNoise == .no)
-                        .opacity(engageTimer.usingRandomNoise == .yes ? 1.0 : 0.5)
+                        }.disabled(engageTimer.usingRandomNoise == false)
+                        .opacity(engageTimer.usingRandomNoise == true ? 1.0 : 0.5)
                         
                     }
                     
@@ -126,20 +133,20 @@ struct SettingsView: View {
                         Spacer()
                         
                         RoundedRectangle(cornerRadius: 25, style: .circular)
-                            .fill(engageTimer.prepCounterState == .UsingTimer ? onColor : offColor)
+                            .fill(engageTimer.prepCounterState == true ? onColor : offColor)
                             .frame(width: 75, height: 35)
                         .overlay(
                             Circle()
                             .fill(thumbColor)
                                 .shadow(radius: 1, x: 0, y: 1)
                                 .padding(1.5)
-                                .offset(x: engageTimer.prepCounterState == .UsingTimer ? 20 : -20)
+                                .offset(x: engageTimer.prepCounterState == true ? 20 : -20)
                                 .animation(Animation.easeInOut(duration: 0.3))
                                 .onTapGesture {
-                                    if engageTimer.prepCounterState == .UsingTimer {
-                                        engageTimer.prepCounterState = .NotUsingTimer
+                                    if engageTimer.prepCounterState == true {
+                                        engageTimer.prepCounterState = false
                                     } else {
-                                        engageTimer.prepCounterState = .UsingTimer
+                                        engageTimer.prepCounterState = true
                                     }}
                         )
                         
@@ -151,8 +158,8 @@ struct SettingsView: View {
                             Stepper("\(engageTimer.prepareCounter)", value: $engageTimer.prepareCounter, in: 0...120).labelsHidden()
                         }
                         
-                        .disabled(engageTimer.prepCounterState == .NotUsingTimer)
-                        .opacity(engageTimer.prepCounterState == .UsingTimer ? 1.0 : 0.5)
+                        .disabled(engageTimer.prepCounterState == false)
+                        .opacity(engageTimer.prepCounterState == true ? 1.0 : 0.5)
                 }
                 
                 Section(header: Text("Round End Warning")) {
@@ -161,20 +168,20 @@ struct SettingsView: View {
                         Spacer()
                         
                         RoundedRectangle(cornerRadius: 25, style: .circular)
-                            .fill(engageTimer.warningCounterState == .UsingTimer ? onColor : offColor)
+                            .fill(engageTimer.warningCounterState == true ? onColor : offColor)
                             .frame(width: 75, height: 35)
                         .overlay(
                             Circle()
                             .fill(thumbColor)
                                 .shadow(radius: 1, x: 0, y: 1)
                                 .padding(1.5)
-                                .offset(x: engageTimer.warningCounterState == .UsingTimer ? 20 : -20)
+                                .offset(x: engageTimer.warningCounterState == true ? 20 : -20)
                                 .animation(Animation.easeInOut(duration: 0.3))
                                 .onTapGesture {
-                                    if engageTimer.warningCounterState == .UsingTimer {
-                                        engageTimer.warningCounterState = .NotUsingTimer
+                                    if engageTimer.warningCounterState == true {
+                                        engageTimer.warningCounterState = false
                                     } else {
-                                        engageTimer.warningCounterState = .UsingTimer
+                                        engageTimer.warningCounterState = true
                                     }}
                         )
                         
@@ -186,8 +193,8 @@ struct SettingsView: View {
                             Stepper("\(engageTimer.warningCounter)", value: $engageTimer.warningCounter, in: 0...120).labelsHidden()
                         }
                         
-                        .disabled(engageTimer.prepCounterState == .NotUsingTimer)
-                        .opacity(engageTimer.prepCounterState == .UsingTimer ? 1.0 : 0.5)
+                        .disabled(engageTimer.prepCounterState == false)
+                        .opacity(engageTimer.prepCounterState == true ? 1.0 : 0.5)
                 }
                 
                 
@@ -195,7 +202,16 @@ struct SettingsView: View {
                 
                 
             }
-            Text("Swipe Down to Save").bold()
+            Button(action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Text("Swipe Down To Save & Exit")
+                    .foregroundColor(Color("blue"))
+            }
+                
+            
+            
+           
         }.onDisappear(perform: {
             engageTimer.createRandomNumberArray()
         })

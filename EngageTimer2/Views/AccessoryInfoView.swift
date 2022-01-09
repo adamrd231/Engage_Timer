@@ -25,12 +25,12 @@ struct AccessoryInfoView: View {
                     Text("Prepare").font(.callout).fontWeight(.heavy)
                     AccessoryClockFormatView(time: engageTimer.prepareCounter)
                 }
-                .opacity(engageTimer.prepCounterState == .NotUsingTimer ? 0.5 : 1.0)
+                .opacity(engageTimer.prepCounterState == false ? 0.5 : 1.0)
 
                 VStack {
                     Text("Warning").font(.callout).fontWeight(.heavy)
                     AccessoryClockFormatView(time: engageTimer.warningCounter)
-                }.opacity(engageTimer.warningCounterState == .NotUsingTimer ? 0.5 : 1.0)
+                }.opacity(engageTimer.warningCounterState == false ? 0.5 : 1.0)
             }
             VStack(spacing: 15) {
                 VStack {
@@ -39,9 +39,9 @@ struct AccessoryInfoView: View {
                 }
                 VStack {
                     Text("Sound").font(.callout).fontWeight(.heavy)
-                    Text(engageTimer.sound).font(.headline).fontWeight(.medium)
+                    Text(engageTimer.noiseArray[engageTimer.selectedSound]).font(.headline).fontWeight(.medium)
                 }
-                .opacity(engageTimer.usingRandomNoise == .no ? 0.5 : 1.0)
+                .opacity(engageTimer.usingRandomNoise == false ? 0.5 : 1.0)
 
                 VStack {
                     Text("Interval").font(.callout).fontWeight(.heavy)
@@ -51,7 +51,7 @@ struct AccessoryInfoView: View {
                         AccessoryClockFormatView(time: engageTimer.maximumRandom)
                     }
                 }
-                .opacity(engageTimer.usingRandomNoise == .no ? 0.5 : 1.0)
+                .opacity(engageTimer.usingRandomNoise == false ? 0.5 : 1.0)
             }.onAppear(perform: {
                 print("Using Random Noise: \(engageTimer.usingRandomNoise)")
             })

@@ -24,14 +24,14 @@ struct ResetButton: View {
         Button(action: {
             playSound(sound: "stop-button", type: "wav")
             timer.connect().cancel()
-            engageTimer.timerState = .NotRunning
+            engageTimer.timerState = "NotRunning"
             resetValues()
             print(engageTimer.timerState)
         }) {
             Text("Reset").foregroundColor((Color("blue")))
             
-        }.disabled(engageTimer.timerState == .NotRunning)
-        .opacity(engageTimer.timerState == .NotRunning ? 0.5 : 1.0)
+        }.disabled(engageTimer.timerState == "NotRunning")
+        .opacity(engageTimer.timerState == "NotRunning" ? 0.5 : 1.0)
     }
 }
 

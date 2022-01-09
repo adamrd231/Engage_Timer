@@ -18,33 +18,36 @@ struct StartButton: View {
             print("\(engageTimer.time), \(engageTimer.timerState)")
             
             switch engageTimer.timerState {
-            case .NotRunning:
+            case "NotRunning":
                 playSound(sound: "start-button", type: "wav")
                 // Create new timer
                 timer = Timer.publish(every: 1, on: .main, in: .common)
                 engageTimer.setBackupValues()
                 self.timer.connect()
-                engageTimer.timerState = .IsRunning
+                engageTimer.timerState = "Running"
                 
-            case .IsPaused:
+            case "Paused":
                 playSound(sound: "pause", type: "wav")
                 // Create new timer
                 timer = Timer.publish(every: 1, on: .main, in: .common)
                 self.timer.connect()
-                engageTimer.timerState = .IsRunning
+                engageTimer.timerState = "Running"
                 
-            case .IsRunning:
+            case "Running":
                 playSound(sound: "pause", type: "wav")
                 timer.connect().cancel()
-                engageTimer.timerState = .IsPaused
                 
+                engageTimer.timerState = "Paused"
+                
+            default: return
             }
+            
             
         }) {
             
             
             switch engageTimer.timerState {
-            case .IsRunning:
+            case "Running":
                 ZStack {
                     RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
                     HStack {
@@ -56,7 +59,7 @@ struct StartButton: View {
                     }
                 }
                 
-            case .NotRunning:
+            case "NotRunning":
                 ZStack {
                     RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
                     HStack {
@@ -68,7 +71,7 @@ struct StartButton: View {
                     }
                 }
                 
-            case .IsPaused:
+            case "Paused":
                 ZStack {
                     RoundedRectangle(cornerRadius: 25.0).frame(width: 150, height: 75).foregroundColor((Color("blue")))
                     HStack {
@@ -76,6 +79,7 @@ struct StartButton: View {
                         Text("Resume").foregroundColor(.white)
                     }
                 }
+            default: EmptyView()
             }
         }
     }

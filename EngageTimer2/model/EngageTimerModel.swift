@@ -7,43 +7,62 @@
 
 import Foundation
 import SwiftUI
+import Combine
+
+private var cancellable = [String: AnyCancellable]()
+
+extension Published {
+    init(wrappedValue value: Value, key: String) {
+    
+        let value = UserDefaults.standard.object(forKey: key) as? Value ?? value
+        self.init(initialValue: value)
+        cancellable[key] = projectedValue.sink { val in
+            UserDefaults.standard.set(val, forKey: key)
+        }
+     
+    }
+}
 
 class EngageTimer: ObservableObject {
     // Prepare time variables
-    @Published var prepareCounter = 5
-    @Published var prepCounterState = UsingPrepCountdownTimer.UsingTimer
+    @Published(key: "prepareCounter") var prepareCounter = 5
+    @Published(key: "prepCounterState") var prepCounterState = true
     
     // Warning time variables
-    @Published var warningCounter = 3
-    @Published var warningCounterState = UsingPrepCountdownTimer.UsingTimer
+    @Published(key: "warningCounter") var warningCounter = 10
+    @Published(key: "warningCounterState") var warningCounterState = true
     
     // Rounds Variables
     @Published var currentRound = 1
-    @Published var numberOfRounds = 5
+    @Published(key: "numberOfRounds") var numberOfRounds = 5
     
     // Timer Values
-    @Published var time = 30
-    @Published var timerState = EngageTimerState.NotRunning
+    @Published(key: "time") var time = 300
+    
+    var engageTimerState = ["NotRunning", "Paused", "Running"]
+    @Published(key: "timerState") var timerState = "NotRunning"
     @Published var totalTime = 0
     
     // Rest Values
-    @Published var rest = 5
+    @Published(key: "rest") var rest = 60
 
     // Random Array and Random Number Placeholder used to create random sequence.
     @Published var randomArray:[Int] = []
-    @Published var minimumRandom = 3
-    @Published var maximumRandom = 5
+    @Published(key: "minimumRandom") var minimumRandom = 5
+    
+    @Published(key: "maximumRandom") var maximumRandom = 20
     
     // Backup values
-    @Published var backupTime = 0
-    @Published var backupWarningCounter = 0
-    @Published var backupPrepareCounter = 0
-    @Published var backupRest = 5
+    @Published(key: "backupTime") var backupTime = 0
+    @Published(key: "backupWarningCounter") var backupWarningCounter = 0
+    @Published(key: "backupPrepareCounter") var backupPrepareCounter = 0
+    @Published(key: "backupRest") var backupRest = 5
     
     // Random Noise state and sound type
-    @Published var usingRandomNoise = UsingRandomNoise.yes
-    @Published var sound = "Clap"
-    
+    @Published(key: "usingRandomNoise") var usingRandomNoise = true
+    @Published(key: "selectedSound") var selectedSound = 0
+    @Published var noiseArray = ["Clap", "Bell", "Whistle"]
+
     
     func createRandomNumberArray() {
         
@@ -82,7 +101,7 @@ class EngageTimer: ObservableObject {
     func runEngageTimer() {
         
         // If prepare counter is being used, start countdown with that
-        if prepCounterState == .UsingTimer && prepareCounter > 0 {
+        if prepCounterState == true && prepareCounter > 0 {
             prepareCounter -= 1
         // If countdown timer is done, then start timer
         } else if time > 0 && currentRound < numberOfRounds {
@@ -92,13 +111,13 @@ class EngageTimer: ObservableObject {
             }
             
             if randomArray.contains(time) {
-                playSound(sound: sound, type: "mp3")
+                playSound(sound: noiseArray[selectedSound], type: "mp3")
             }
             
             
             time -= 1
             
-            if warningCounter == time && warningCounterState == .UsingTimer {
+            if warningCounter == time && warningCounterState == true {
                 playSound(sound: "double-hit2", type: "wav")
             }
 
@@ -116,30 +135,17 @@ class EngageTimer: ObservableObject {
                 time = backupTime
                 rest = backupRest
                 currentRound += 1
+                createRandomNumberArray()
             }
 
             // Finished running timer, reset
         } else {
-            timerState = .NotRunning
+            timerState = "NotRunning"
             time = backupTime
             currentRound = 1
         }
     }
 }
 
-enum EngageTimerState {
-    case IsRunning
-    case IsPaused
-    case NotRunning
-}
 
-enum UsingPrepCountdownTimer {
-    case UsingTimer
-    case NotUsingTimer
-}
 
-enum UsingRandomNoise {
-    case yes
-    case no
-    
-}

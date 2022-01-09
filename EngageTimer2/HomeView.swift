@@ -18,8 +18,10 @@ enum ActiveSheet: Identifiable {
     }
 }
 
+
+
+
 struct HomeView: View {
-    @Environment(\.managedObjectContext) private var viewContext
     
     @StateObject var engageTimer: EngageTimer
     
@@ -30,32 +32,35 @@ struct HomeView: View {
     
     @StateObject var storeManager: StoreManager
     
+    @State var firstTimeOnScreen = true
+    
+
 
     var body: some View {
+
         NavigationView {
 
-                
-                TabView {
-                // MARK: First Screen
-
-                    VStack(spacing: 15) {
-                    Spacer()
-                    // Timer Stack View
-                    RoundView(currentRound: engageTimer.currentRound, numberOfRounds: engageTimer.numberOfRounds)
-                    ClockFormatView(time: engageTimer.time)
-                        AccessoryInfoView(engageTimer: engageTimer)
-                            .padding()
-                            .background(Color("lightGray"))
-                            .cornerRadius(15)
-              
-                    StartButton(engageTimer: engageTimer, timer: $timer)
-                    ResetButton(engageTimer: engageTimer, timer: $timer)
-                    Spacer()
-                        
-                    ZStack {
-                        Rectangle().foregroundColor(Color("lightGray"))
-                        Text("Admob")
-                    }.frame(height: 75)
+            
+            TabView {
+            // MARK: First Screen
+                VStack(spacing: 15) {
+                Spacer()
+                // Timer Stack View
+                RoundView(currentRound: engageTimer.currentRound, numberOfRounds: engageTimer.numberOfRounds)
+                ClockFormatView(time: engageTimer.time)
+                    AccessoryInfoView(engageTimer: engageTimer)
+                        .padding()
+                        .background(Color("lightGray"))
+                        .cornerRadius(15)
+          
+                StartButton(engageTimer: engageTimer, timer: $timer)
+                ResetButton(engageTimer: engageTimer, timer: $timer)
+                    
+                if storeManager.purchasedRemoveAds != true {
+                    
+                    AdMobBanner()
+                }
+                Spacer()
 
                 }.tabItem { VStack {
                     Image(systemName: "clock").foregroundColor(Color("blue"))
@@ -79,9 +84,6 @@ struct HomeView: View {
             .navigationBarItems(
                 leading: Button("About Timer") {
                     self.activeSheet = .about
-    
-                    
-                    
                 }
                 .foregroundColor((Color("blue"))),
                 trailing:
@@ -93,29 +95,34 @@ struct HomeView: View {
             .onAppear(perform: {
                 engageTimer.totalTime = (engageTimer.time * engageTimer.numberOfRounds) + (engageTimer.rest * engageTimer.numberOfRounds)
                 engageTimer.createRandomNumberArray()
+
             })
             .onReceive(self.timer) { _ in
                 // If timer is not running
-                if engageTimer.timerState == .NotRunning {
+                
+                if engageTimer.timerState == "NotRunning" {
                     timer.connect().cancel()
                 } else {
                     // Create random number array for engage sounds
-                    
                     engageTimer.runEngageTimer()
+                    
                 }
                 
             }
-                .sheet(item: $activeSheet) { item in
-                    switch item {
-                    case .settings:
-                        SettingsView(engageTimer: engageTimer)
-                    case .about:
-                        OnboardingScreenView()
-                    default: EmptyView()
-                    }
-                   
+            .sheet(item: $activeSheet) { item in
+                switch item {
+                case .settings:
+                    SettingsView(engageTimer: engageTimer)
+                case .about:
+                    OnboardingScreenView(doneViewing: $firstTimeOnScreen)
+                default: EmptyView()
                 }
+               
+            }
         }
+        
+        
+
         
     }
 
@@ -125,7 +132,7 @@ struct HomeView: View {
     func stopEngageTimer() {
         print("Stopping Time")
         timer.connect().cancel()
-        engageTimer.timerState = .NotRunning
+        engageTimer.timerState = "NotRunning"
     }
 
 }
