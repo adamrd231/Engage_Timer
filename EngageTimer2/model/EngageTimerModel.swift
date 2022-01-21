@@ -12,6 +12,7 @@ import Combine
 private var cancellable = [String: AnyCancellable]()
 
 extension Published {
+    
     init(wrappedValue value: Value, key: String) {
     
         let value = UserDefaults.standard.object(forKey: key) as? Value ?? value
@@ -25,7 +26,7 @@ extension Published {
 
 class EngageTimer: ObservableObject {
     // Prepare time variables
-    @Published(key: "prepareCounter") var prepareCounter = 5
+    
     @Published(key: "prepCounterState") var prepCounterState = true
     
     // Warning time variables
@@ -38,6 +39,8 @@ class EngageTimer: ObservableObject {
     
     // Timer Values
     @Published(key: "time") var time = 300
+    
+    @Published(key: "prepareCounter") var prepareCounter = 300
     
     var engageTimerState = ["NotRunning", "Paused", "Running"]
     @Published(key: "timerState") var timerState = "NotRunning"

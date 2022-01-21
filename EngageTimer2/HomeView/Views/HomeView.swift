@@ -31,10 +31,7 @@ struct HomeView: View {
     @State var activeSheet: ActiveSheet?
     
     @StateObject var storeManager: StoreManager
-    
     @State var firstTimeOnScreen = true
-    
-
 
     var body: some View {
 
@@ -119,6 +116,7 @@ struct HomeView: View {
                 }
                
             }
+            .navigationBarHidden(false)
         }
         
         

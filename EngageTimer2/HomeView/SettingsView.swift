@@ -64,7 +64,7 @@ struct SettingsView: View {
                             RoundedRectangle(cornerRadius: 25, style: .circular)
                                 .fill(engageTimer.usingRandomNoise == true ? onColor : offColor)
                                 .frame(width: 75, height: 35)
-                            .overlay(
+                                .overlay(
                                 Circle()
                                 .fill(thumbColor)
                                     .shadow(radius: 1, x: 0, y: 1)

@@ -28,21 +28,26 @@ struct EngageTimer2App: App {
             HomeView(engageTimer: engageTimer, storeManager: storeManager)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onAppear(perform: {
-                    
-                    if storeManager.myProducts.isEmpty {
-                        SKPaymentQueue.default().add(storeManager)
-                        storeManager.getProducts(productIDs: productIds)
-                    }
-                    
-                    if storeManager.showedAdvertising == false && storeManager.purchasedRemoveAds == false {
-                        storeManager.showedAdvertising = true
-                        requestIDFA()
-                        print(storeManager.showedAdvertising)
-                        
-                    }
-                    
+                    setupStoreManager()
+//                    showInterstittialAdvertising()
                 })
 
+        }
+    }
+    
+    private func setupStoreManager() {
+        if storeManager.myProducts.isEmpty {
+            SKPaymentQueue.default().add(storeManager)
+            storeManager.getProducts(productIDs: productIds)
+        }
+    }
+    
+    private func showInterstittialAdvertising() {
+        if storeManager.showedAdvertising == false && storeManager.purchasedRemoveAds == false {
+            storeManager.showedAdvertising = true
+            requestIDFA()
+            print(storeManager.showedAdvertising)
+            
         }
     }
     
@@ -59,7 +64,7 @@ struct EngageTimer2App: App {
     
     
     // App Tracking Transparency - Request permission and play ads on open only
-    func requestIDFA() {
+    private func requestIDFA() {
       ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
         // Tracking authorization completed. Start loading ads here.
  

@@ -13,6 +13,14 @@ var audioPlayer: AVAudioPlayer?
 
 func playSound(sound: String, type: String) {
     
+    let audioSession = AVAudioSession.sharedInstance()
+    
+    do {
+        try audioSession.setCategory(.ambient, mode: .default, options: [.mixWithOthers])
+    } catch {
+        print("Failed to set adio session category")
+    }
+    
     if let path = Bundle.main.path(forResource: sound, ofType: type) {
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))

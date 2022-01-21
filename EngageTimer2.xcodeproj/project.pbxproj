@@ -78,6 +78,7 @@
 		665FBA9727890E8400E70C14 /* StoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665FBA9627890E8400E70C14 /* StoreManager.swift */; };
 		665FBA9A27890F1900E70C14 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665FBA9927890F1900E70C14 /* StoreKit.framework */; };
 		665FBA9D278935DD00E70C14 /* AdmobBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 665FBA9C278935DD00E70C14 /* AdmobBannerView.swift */; };
+		6691DDF4279A73CE00B099D2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6691DDF3279A73CE00B099D2 /* HomeViewModel.swift */; };
 		669AB7E6278B7E7000873C4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 669AB7E5278B7E7000873C4B /* LaunchScreen.storyboard */; };
 		974C3B8E35E01CA70F2D0751 /* Pods_EngageTimer2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7633B586AEF50243412CACF6 /* Pods_EngageTimer2.framework */; };
 		FC658F7576F1B3FE9D24EA49 /* Pods_EngageTimer2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2716376367157C65ED4A9DFD /* Pods_EngageTimer2Tests.framework */; };
@@ -144,6 +145,7 @@
 		665FBA9627890E8400E70C14 /* StoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreManager.swift; sourceTree = "<group>"; };
 		665FBA9927890F1900E70C14 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		665FBA9C278935DD00E70C14 /* AdmobBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobBannerView.swift; sourceTree = "<group>"; };
+		6691DDF3279A73CE00B099D2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		669AB7E5278B7E7000873C4B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7249A334D96D45ECB109BB1F /* Pods_EngageTimer2_EngageTimer2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngageTimer2_EngageTimer2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7633B586AEF50243412CACF6 /* Pods_EngageTimer2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EngageTimer2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,10 +213,11 @@
 				665FBA9327890E6300E70C14 /* InAppPurchases */,
 				663C246F27878296003867B5 /* SoundFiles */,
 				663C244C2785837E003867B5 /* Fonts */,
-				663C244227853AD7003867B5 /* Views */,
+				6691DDE32799647200B099D2 /* Components */,
+				6691DDE42799647E00B099D2 /* Buttons */,
+				663C244227853AD7003867B5 /* HomeView */,
 				663C243F278537DC003867B5 /* model */,
 				663C240F27845562003867B5 /* EngageTimer2App.swift */,
-				663C241127845562003867B5 /* HomeView.swift */,
 				663C241327845563003867B5 /* Assets.xcassets */,
 				663C241827845563003867B5 /* Persistence.swift */,
 				663C241D27845563003867B5 /* Info.plist */,
@@ -260,19 +263,16 @@
 			path = model;
 			sourceTree = "<group>";
 		};
-		663C244227853AD7003867B5 /* Views */ = {
+		663C244227853AD7003867B5 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				663C244327853FBD003867B5 /* StartButton.swift */,
-				663C24452785484C003867B5 /* ResetButton.swift */,
+				6691DDF2279A73A800B099D2 /* ViewModels */,
+				6691DDF1279A73A400B099D2 /* Views */,
 				663C244F278584FE003867B5 /* AccessoryInfoView.swift */,
-				663C245327858A0E003867B5 /* ClockFormatView.swift */,
-				663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */,
 				663C245727859684003867B5 /* SettingsView.swift */,
-				663C245F278652BF003867B5 /* RoundView.swift */,
 				663C249C2787B96B003867B5 /* OnBoardingScreenView.swift */,
 			);
-			path = Views;
+			path = HomeView;
 			sourceTree = "<group>";
 		};
 		663C244C2785837E003867B5 /* Fonts */ = {
@@ -327,6 +327,41 @@
 				665FBA9C278935DD00E70C14 /* AdmobBannerView.swift */,
 			);
 			path = GoogleAdMob;
+			sourceTree = "<group>";
+		};
+		6691DDE32799647200B099D2 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				663C245327858A0E003867B5 /* ClockFormatView.swift */,
+				663C2467278685AE003867B5 /* AccessoryClockFormatView.swift */,
+				663C245F278652BF003867B5 /* RoundView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6691DDE42799647E00B099D2 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				663C244327853FBD003867B5 /* StartButton.swift */,
+				663C24452785484C003867B5 /* ResetButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		6691DDF1279A73A400B099D2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				663C241127845562003867B5 /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6691DDF2279A73A800B099D2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6691DDF3279A73CE00B099D2 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		DD1B716DEA89A8CA0DF9081F /* Pods */ = {
@@ -615,6 +650,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				663C249D2787B96B003867B5 /* OnBoardingScreenView.swift in Sources */,
+				6691DDF4279A73CE00B099D2 /* HomeViewModel.swift in Sources */,
 				663C244427853FBD003867B5 /* StartButton.swift in Sources */,
 				663C246C27878226003867B5 /* PlaySound.swift in Sources */,
 				663C2460278652BF003867B5 /* RoundView.swift in Sources */,
